@@ -55,6 +55,17 @@
             @enderror
         </div>
 
+        {{-- select per le tipologia di progetto --}}
+        <div class="col-md-6">
+            <label for="type" class="form-label">Tipologia di progetto (*)</label>
+            <select name="type_id" class="form-select" aria-label="Default select example" id="type">
+                <option value="">-- seleziona la tipologia --</option>
+                @foreach ($types as $type )
+                    <option value="{{$type->id}}" @if(old('type_id', $project->type->id) == $type->id) selected @endif>{{$type->name}}</option>
+                @endforeach
+            </select>
+        </div>
+
         <div class="col-12">
             <label for="description" class="form-label">Descrizione del progetto</label>
             <textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="Descrizione del progetto">{{old('description', $project->description)}}</textarea>
