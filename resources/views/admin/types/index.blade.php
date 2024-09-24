@@ -28,7 +28,10 @@
                         <td>
                             <button class="btn btn-warning" type="submit" onclick="submitEditTypeForm({{$type->id}})">Modifica</button></td>
 
-                        <td>Elimina</td>
+                        <td>@include('admin.partials.formDelete', [
+                            'route' => route('admin.types.destroy', $type),
+                            'message' => "Confermi di voler eliminare: $type->name?"
+                        ])</td>
                     </tr>
 
                 @endforeach
