@@ -1,4 +1,4 @@
-<form class="d-inline" action="{{ route('admin.projects.destroy', $project) }}" method="POST" onsubmit="return confirm('Sei sicuro di voler eliminare il progetto {{$project->title}}?')">
+<form class="d-inline" action="{{ $route }}" method="POST" onsubmit="return confirm('{{$message}}')">
     @csrf
     @method('DELETE')
     <button class="btn btn-danger" type="submit">
