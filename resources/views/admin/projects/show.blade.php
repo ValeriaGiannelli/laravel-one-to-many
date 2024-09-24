@@ -16,6 +16,7 @@
 
     <h1>{{$project->id}}# {{$project->title}}</h1>
     <img src="{{$project->img}}" alt="immagine di {{$project->title}}">
+    <h3>Categoria: {{$project->type? $project->type->name : 'Nessuna Categoria'}}</h3>
     <p>Descrizione: {{$project->description}}</p>
     <h3>Data di inizio: {{$project->start_date}}</h3>
 
