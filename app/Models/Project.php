@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Type;
 
 class Project extends Model
 {
@@ -21,4 +22,9 @@ class Project extends Model
         'slug',
         'description'
     ];
+
+    // funzione per mettere in relazione Project con Type
+    public function type(){
+        return $this->belongsTo(Type::class);
+    }
 }
