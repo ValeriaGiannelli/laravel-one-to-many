@@ -12,7 +12,10 @@
     <a class="btn btn-warning" href="{{route('admin.projects.edit', $project)}}">
         <i class="fa-solid fa-pencil"></i>
     </a>
-    @include('admin.partials.formDelete')
+    @include('admin.partials.formDelete', [
+        'route' => route('admin.projects.destroy', $project),
+        'message' => "Sei sicuro di voler eliminare il progetto: $project->title?"
+    ])
 
     <h1>{{$project->id}}# {{$project->title}}</h1>
     <img src="{{$project->img}}" alt="immagine di {{$project->title}}">
