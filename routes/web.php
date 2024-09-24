@@ -5,6 +5,7 @@ use App\Http\Controllers\Guest\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ProjectController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\TypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,8 @@ Route::middleware(['auth', 'verified'])
         Route::get('/', [DashboardController::class, 'index'])->name('home');
         // aggiungo le rotte della CRUD dei progetti
         Route::resource('projects', ProjectController::class);
+        // rotte della CRUD dei tipi
+        Route::resource('types', TypeController::class);
     });
 
 
