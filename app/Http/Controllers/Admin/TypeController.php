@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Type;
+use App\Functions\Helper;
 
 class TypeController extends Controller
 {
@@ -30,7 +31,13 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        // dump($request->all());
+        $data['slug'] = Helper::generateSlug($data['name'], Type::class);
+
+        $type = Type::create($data);
+
+        return redirect()->route('admin.types.index');
     }
 
     /**
