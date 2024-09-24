@@ -53,6 +53,19 @@
                 <small class="text-danger"> {{$message}} </small>
             @enderror
         </div>
+        {{-- select per le tipologia di progetto --}}
+        <div class="col-md-6">
+            <label for="end_date" class="form-label">Tipologia di progetto (*)</label>
+            <select class="form-select" aria-label="Default select example">
+                <option value="">-- seleziona la tipologia --</option>
+                <option value="1">Web</option>
+                <option value="2">App</option>
+                <option value="3">Database</option>
+            </select>
+            @error('end_date')
+                <small class="text-danger"> {{$message}} </small>
+            @enderror
+        </div>
 
         <div class="col-12">
             <label for="description" class="form-label">Descrizione del progetto</label>
