@@ -17,8 +17,17 @@
             <tbody>
                 @foreach ($types as $type )
                     <tr>
-                        <td>{{$type->name}}</td>
-                        <td>Invia</td>
+                        <td>
+                            <form action="{{route('admin.types.update', $type)}}" method="POST" id="edit-form-{{$type->id}}">
+                                @csrf
+                                @method('PUT')
+                                <input type="text" name="name" value="{{$type->name}}">
+                            </form>
+                        </td>
+
+                        <td>
+                            <button class="btn btn-warning" type="submit" onclick="submitEditTypeForm({{$type->id}})">Modifica</button></td>
+
                         <td>Elimina</td>
                     </tr>
 
@@ -28,4 +37,12 @@
     </div>
 
 </div>
+
+<script>
+    function submitEditTypeForm(id){
+        // prendo il form
+        const form = document.getElementById(`edit-form-${id}`);
+        form.submit();
+    }
+</script>
 @endsection
